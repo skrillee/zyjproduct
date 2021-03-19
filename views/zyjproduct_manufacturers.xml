@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+        <record id="zyj_product_manufactures_tree" model="ir.ui.view">
+            <field name="name">product.manufactures.tree</field>
+            <field name="model">zyjproduct.product_manufacturers</field>
+            <field name="arch" type="xml">
+                <tree string="Manufactures">
+                    <field name="image_of_manufacturer" type="base64"/>
+                    <field name="manufacturer_of_manufacturer" widget="field_partner_autocomplete"/>
+                    <field name="product_quantity_of_manufacturer"/>
+                    <field name="qq_number_of_manufacturer"/>
+                    <field name="wechat_number_of_manufacturer"/>
+                    <field name="address_of_manufacturer"/>
+                    <field name="phone_number_of_manufacturer"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="zyj_product_manufactures_form" model="ir.ui.view">
+            <field name="name">product.manufactures.form</field>
+            <field name="model">zyjproduct.product_manufacturers</field>
+            <field name="arch" type="xml">
+                <form string="manufactures">
+                    <sheet string="manufactures">
+                        <group name="group_top" col="2">
+                            <group name="group_left">
+                                <field name="manufacturer_of_manufacturer"/>
+                                <field name="address_of_manufacturer"/>
+                                <field name="phone_number_of_manufacturer" widget="phone"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="qq_number_of_manufacturer"/>
+                                <field name="wechat_number_of_manufacturer"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_manufactures_tree" model="ir.actions.act_window">
+            <field name="name">工厂信息</field>
+            <field name="res_model">zyjproduct.product_manufacturers</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="zyj_product_manufactures_tree"/>
+        </record>
+
+        <record id="action_manufactures_tree_view1" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="action_manufactures_tree"/>
+        </record>
+        <record id="action_manufactures_tree_view2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="zyj_product_manufactures_form"/>
+            <field name="act_window_id" ref="action_manufactures_tree"/>
+        </record>
+
+        <!-- Top menu item-->
+        <menuitem name="产品管理" id="zyjproduct.menu_root"/>
+
+        <!--menu categories-->
+        <menuitem name="工厂" id="zyjproduct.menu" parent="zyjproduct.menu_root"/>
+
+        <!--actions-->
+        <menuitem name="工厂信息管理" id="zyjproduct.menu_1_list" parent="zyjproduct.menu" action="action_manufactures_tree"/>
+
+    </data>
+</odoo>

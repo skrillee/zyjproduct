@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="zyjproduct.list">
+      <field name="name">ZYJProduct list</field>
+      <field name="model">zyjproduct.zyjproduct</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="zyjproduct.action_window">
+      <field name="name">ZYJProduct window</field>
+      <field name="res_model">zyjproduct.zyjproduct</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="zyjproduct.action_server">
+      <field name="name">ZYJProduct server</field>
+      <field name="model_id" ref="model_zyjproduct_zyjproduct"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="ZYJProduct" id="zyjproduct.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="zyjproduct.menu_1" parent="zyjproduct.menu_root"/>
+    <menuitem name="Menu 2" id="zyjproduct.menu_2" parent="zyjproduct.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="zyjproduct.menu_1_list" parent="zyjproduct.menu_1"
+              action="zyjproduct.action_window"/>
+    <menuitem name="Server to list" id="zyjproduct" parent="zyjproduct.menu_2"
+              action="zyjproduct.action_server"/>
+    -->
+  </data>
+</odoo>
